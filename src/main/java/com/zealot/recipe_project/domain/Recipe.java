@@ -20,7 +20,8 @@ public class Recipe {
     @Lob
     private Byte[] image;
 
-    @OneToOne(cascade = CascadeType.ALL) // cascade makes the Recipe owner of Notes ( define a relationship one to one )
+    @OneToOne(cascade = CascadeType.ALL) // cascade makes the Recipe owner (of the relationship) of Notes
+    // ( define a relationship one to one )
     private Notes notes;
 
     public Long getId() {
