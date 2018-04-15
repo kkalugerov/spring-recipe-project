@@ -1,5 +1,7 @@
 package com.zealot.recipe_project.domain;
 
+import org.hibernate.annotations.Cascade;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 
@@ -12,9 +14,11 @@ public class Ingredient {
     private String description;
     private BigDecimal amount;
 
-
     @ManyToOne
     private Recipe recipe;
+
+    @OneToOne
+    private UnitOfMeasure unitOfMeasure;
 
     public Long getId() {
         return id;
@@ -46,5 +50,13 @@ public class Ingredient {
 
     public void setRecipe(Recipe recipe) {
         this.recipe = recipe;
+    }
+
+    public UnitOfMeasure getUnitOfMeasure() {
+        return unitOfMeasure;
+    }
+
+    public void setUnitOfMeasure(UnitOfMeasure unitOfMeasure) {
+        this.unitOfMeasure = unitOfMeasure;
     }
 }
