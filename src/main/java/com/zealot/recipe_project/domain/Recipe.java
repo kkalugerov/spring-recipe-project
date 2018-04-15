@@ -24,8 +24,13 @@ public class Recipe {
     @Lob
     private Byte[] image;
 
-    @OneToOne(cascade = CascadeType.ALL) // cascade makes the Recipe owner (of the relationship) of Notes
-    // ( define a relationship one to one )
+    // by default EnumType is set to ORDINAL which will transform EASY to 1 , MODERATE to 2 , HARD to 3
+    // with EnumType.STRING  we override the default behaviour and get String values of Enumerated class
+    @Enumerated(value = EnumType.STRING)
+    private Difficulty difficulty;
+
+    // cascade makes the Recipe owner (of the relationship) of Notes ( define a relationship one to one )
+    @OneToOne(cascade = CascadeType.ALL)
     private Notes notes;
 
     public Long getId() {
@@ -114,5 +119,13 @@ public class Recipe {
 
     public void setIngredients(Set<Ingredient> ingredients) {
         this.ingredients = ingredients;
+    }
+
+    public Difficulty getDifficulty() {
+        return difficulty;
+    }
+
+    public void setDifficulty(Difficulty difficulty) {
+        this.difficulty = difficulty;
     }
 }
