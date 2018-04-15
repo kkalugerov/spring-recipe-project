@@ -3,7 +3,7 @@ package com.zealot.recipe_project.domain;
 import javax.persistence.*;
 
 @Entity
-public aspect Notes {
+public class Notes {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
