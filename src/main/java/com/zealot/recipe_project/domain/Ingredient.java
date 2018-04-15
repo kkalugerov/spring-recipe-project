@@ -1,7 +1,5 @@
 package com.zealot.recipe_project.domain;
 
-import org.hibernate.annotations.Cascade;
-
 import javax.persistence.*;
 import java.math.BigDecimal;
 
